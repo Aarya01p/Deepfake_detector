@@ -242,16 +242,13 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run Locally
+# ▶️ Live Demo
 
-```bash
-python app.py
-```
-
+You can see the working site here-
 Open
 
 ```
-https://huggingface.co/spaces/aarya47/deepfake-detector
+https://aarya47-deepfake-detector.hf.space/
 ```
 
 ---
