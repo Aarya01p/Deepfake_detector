@@ -1,0 +1,11 @@
+Deepfake Detection Model Metrics
+
+Model              : EfficientNetB0
+Framework          : TensorFlow / Keras
+Image Size         : 224 x 224
+Classes            : Real, Fake
+
+Validation Accuracy : 86%
+Precision           : 88%
+Recall              : 86%
+F1-Score            : 86%

@@ -1,0 +1,34 @@
+====================================================
+        Deepfake Detection Model Evaluation
+====================================================
+
+Classification Report
+
+              precision    recall    f1-score    support
+
+Real             0.80       0.96       0.87       13,949
+Fake             0.95       0.76       0.85       14,051
+
+----------------------------------------------------
+Accuracy                               0.86       28,000
+Macro Average     0.88       0.86       0.86       28,000
+Weighted Average  0.88       0.86       0.86       28,000
+----------------------------------------------------
+
+Summary
+
+• Overall Accuracy : 86%
+• Precision        : 88%
+• Recall           : 86%
+• F1-Score         : 86%
+
+Observations
+
+- The model achieves an overall accuracy of 86% on the validation dataset.
+- It identifies Real images with a recall of 96%, indicating very few real images are incorrectly 
+classified as fake.
+- The model predicts Fake images with a precision of 95%, meaning most images classified as fake 
+are actually fake.
+- The comparatively lower recall (76%) for the Fake class suggests that some fake images are still
+being misclassified as real, leaving room for improvement through additional fine-tuning,
+stronger data augmentation, or face-focused preprocessing.
