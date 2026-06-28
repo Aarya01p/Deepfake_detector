@@ -1,0 +1,18 @@
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+.venv/
+venv/
+
+.DS_Store
+
+*.log
+
+# Large model files (if you don't want them in GitHub)
+*.h5
+*.keras
+
+# Dataset
+dataset/
+Train/
