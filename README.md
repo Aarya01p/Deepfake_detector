@@ -1,6 +1,3 @@
-# Deepfake_detector
-This is a deepfake image detector. It detects whether the face is real or AI generated.
-
 # 🛡️ Deepfake Detection Using EfficientNetB0
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
@@ -16,9 +13,49 @@ A deep learning-based image classification system that detects whether a facial 
 
 Deepfakes have become increasingly realistic with the advancement of Generative AI, creating serious concerns in digital security, misinformation, identity theft, and online fraud.
 
-This project aims to build a reliable deepfake image detector capable of distinguishing between authentic and manipulated facial images using transfer learning.
+This project uses transfer learning with EfficientNetB0 to classify facial images as real or AI-generated. The model is trained on a balanced dataset of over 140,000 images and deployed through a Gradio web interface for real-time inference.
 
 The model is trained on a balanced dataset containing over **140,000 facial images**, consisting of both real and AI-generated images.
+
+---
+## 🖼️ Application Preview
+
+Below is the Gradio interface of the Deepfake Detection application:
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/07edf157-2d2b-4f2a-b199-66a2cd41c783" />
+
+
+---
+## ⚙️ How It Works
+
+The detection pipeline follows these steps:
+
+```text
+Input Image
+      │
+      ▼
+Resize to 224 × 224
+      │
+      ▼
+Data Augmentation
+      │
+      ▼
+EfficientNetB0 Feature Extraction
+      │
+      ▼
+Global Average Pooling
+      │
+      ▼
+Dense Layers
+      │
+      ▼
+Sigmoid Output Layer
+      │
+      ▼
+Prediction (Real / Fake)
+```
+
+The model uses transfer learning with EfficientNetB0 to extract facial features and classify an uploaded image as either **Real** or **Fake**.
 
 ---
 
@@ -42,26 +79,30 @@ The model is trained on a balanced dataset containing over **140,000 facial imag
 
 ```
 Deepfake-Detection/
+
 │
-├── app.py                     # Gradio application
-├── deepfake_detector.keras    # Trained model
-├── requirements.txt
+├── app.py
 ├── README.md
+├── requirements.txt
+├── .gitignore
 │
-├── notebooks/
-│   ├── Data_Loading.ipynb
-│   ├── Model_Training.ipynb
-│   ├── Evaluation.ipynb
-│   └── Gradio_App.ipynb
+├── assets/
+│   └── sample_images/
+       ├── fake-sample.png
+       └── real-sample.png
+    └── ReadMe.md
 │
 ├── images/
+│   ├── confusion_matrix.png
 │   ├── interface.png
-│   └── sample_predictions.png
+│   └── roc_curve.png
+│
+├── notebooks/
+│   └── Deepfake_Detection.ipynb
 │
 └── results/
-    ├── confusion_matrix.png
-    ├── roc_curve.png
-    └── training_history.png
+    ├── classification_report.txt
+    └── metrics.txt
 ```
 
 ---
@@ -144,6 +185,8 @@ Dataset/
 | Fake | 70,001 |
 | Total | **140,002** |
 
+> **Note:** The complete dataset is not included in this repository due to its large size (140,002 images).
+
 ---
 
 # ⚙️ Data Preprocessing
@@ -198,6 +241,26 @@ The model is evaluated using:
 - Validation Loss
 
 ---
+## 📊 Model Performance
+
+The trained model achieved the following performance on the validation dataset:
+
+| Metric | Score |
+|---------|------:|
+| Accuracy | **86%** |
+| Precision | **88%** |
+| Recall | **86%** |
+| F1 Score | **86%** |
+| Validation Images | **28,000** |
+
+### Classification Report
+
+| Class | Precision | Recall | F1-Score |
+|-------|----------:|-------:|---------:|
+| Real | 0.80 | 0.96 | 0.87 |
+| Fake | 0.95 | 0.76 | 0.85 |
+
+---
 
 # 🖥️ Gradio Interface
 
@@ -244,8 +307,7 @@ pip install -r requirements.txt
 
 # ▶️ Live Demo
 
-You can see the working site here-
-Open
+Try the deployed application here:
 
 ```
 https://aarya47-deepfake-detector.hf.space/
@@ -267,14 +329,10 @@ https://aarya47-deepfake-detector.hf.space/
 # 📈 Future Improvements
 
 - Face Detection (MTCNN)
-- EfficientNetB3/B4
-- Vision Transformers (ViT)
-- Explainable AI using Grad-CAM
+- Fine-tuning EfficientNetB0
 - Video Deepfake Detection
-- Live Webcam Detection
+- Explainable AI with Grad-CAM
 - Mobile Deployment
-- REST API
-- Docker Support
 
 ---
 
