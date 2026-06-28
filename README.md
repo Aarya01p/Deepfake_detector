@@ -85,6 +85,7 @@ Deepfake-Detection/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── LICENSE
 │
 ├── assets/
 │   └── sample_images/
